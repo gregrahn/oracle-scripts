@@ -78,7 +78,7 @@ begin
       num_cols :=0 ;
       for col_name_rec in (select   column_name,
                                     case 
-                                       -- strings longer than 255 need a delcration
+                                       -- strings longer than 255 need a declaration
                                        when data_type in ('VARCHAR2','CHAR') and data_length > 255 then 'CHAR('||data_length||')'
                                        -- set your date masks appropriately
                                        when data_type = 'DATE' then 'DATE mask "YYYY-MM-DD"'

@@ -117,4 +117,4 @@ end;
 /
 
 spool off
-set feedback on termout on set serveroutput off
+set feedback on termout on serveroutput off

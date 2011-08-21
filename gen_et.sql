@@ -25,10 +25,10 @@ begin
    select user into v_user from dual;
    
    -- print the directory DDL
-   dbms_output.put_line('create or replace directory '||v_user||'_DATA as ''<changme>'';');
-   dbms_output.put_line('create or replace directory '||v_user||'_LOG  as ''<changme>'';');
+   dbms_output.put_line('create or replace directory '||v_user||'_DATA as ''changme'';');
+   dbms_output.put_line('create or replace directory '||v_user||'_LOG  as ''/tmp'';');
    -- for PREPROCESSOR, if necessary
-   dbms_output.put_line('create or replace directory EXEC_DIR as ''<changme>'';');
+   dbms_output.put_line('create or replace directory EXEC_DIR as ''changme'';');
 
    -- generate the ddl for every table in the schema whose table name does not start with ET_
    for tab_name_rec in (select table_name from user_tables where table_name not like 'ET_%' order by table_name)
@@ -71,7 +71,9 @@ begin
       -- dbms_output.put_line(chr(9)||chr(9)||'SKIP 1');
       dbms_output.put_line(chr(9)||chr(9)||'BADFILE '||v_user||'_LOG: '''||tab_name_rec.table_name||'.bad''');
       dbms_output.put_line(chr(9)||chr(9)||'LOGFILE '||v_user||'_LOG: '''||tab_name_rec.table_name||'.log''');
-      dbms_output.put_line(chr(9)||chr(9)||'FIELDS LRTRIM TERMINATED BY ''|''');
+      dbms_output.put_line(chr(9)||chr(9)||'FIELDS TERMINATED BY ''|''');
+      -- dbms_output.put_line(chr(9)||chr(9)||'OPTIONALLY ENCLOSED BY ''"''');
+      dbms_output.put_line(chr(9)||chr(9)||'LRTRIM');
       dbms_output.put_line(chr(9)||chr(9)||'MISSING FIELD VALUES ARE NULL');
       dbms_output.put_line(chr(9)||chr(9)||'(');
 
@@ -104,7 +106,7 @@ begin
       dbms_output.put_line(chr(9)||chr(9)||')');
       dbms_output.put_line(chr(9)||')');
       dbms_output.put_line(chr(9)||'LOCATION (');
-      dbms_output.put_line(chr(9)||''''||(tab_name_rec.table_name)||'.dat''');
+      dbms_output.put_line(chr(9)||''''||lower(tab_name_rec.table_name)||'.dat''');
       -- dbms_output.put_line(chr(9)||'''prefix_'||lower(tab_name_rec.table_name)||'.gz''');
       dbms_output.put_line(chr(9)||')');
       dbms_output.put_line(')');

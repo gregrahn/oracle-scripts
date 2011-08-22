@@ -45,5 +45,5 @@ EOF
 # get & execute the mv command to move the trace file from background_dump_dest to $BASE/tcb/$1
 #
 grep ^mv /tmp/tcb$$.out > /tmp/getf$$.sh
-sh  /tmp/getf$$.sh
+sh /tmp/getf$$.sh
 rm /tmp/tcb$$.out /tmp/getf$$.sh

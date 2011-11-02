@@ -8,7 +8,7 @@
 --
 --    DESCRIPTION
 --      Generate external table DDL from dictionary information.
---      External table name is ET_<table_name> so table names longer than 29 chars or more need manual naming.
+--      External table name is ET_<table_name> so table names longer than 29 chars need manual naming.
 --      Assumes flat file column order matches DDL of table and flat file name is based on table name.
 --
 --    NOTES

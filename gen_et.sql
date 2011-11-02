@@ -13,7 +13,7 @@
 --
 --    NOTES
 --      Adjust date/timestamp masks, source files, parallel degree, etc. as necessary.
---      By default runs on all tables in a schema where table_anme not like 'ET_%'.
+--      By default runs on all tables in a schema where table_name not like 'ET_%'.
 --
 --    MODIFIED   (YYYY-MM-DD)
 --    grahn       2011-08-21 - Created

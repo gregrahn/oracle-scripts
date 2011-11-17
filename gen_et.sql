@@ -19,7 +19,7 @@
 --    grahn       2011-08-21 - Created
 --
 
-set serveroutput on echo off feedback off timing off termout off
+set serveroutput on echo off feedback off timing off termout off trimspool on trim on
 
 spool &&1._et.sql
 

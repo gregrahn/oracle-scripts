@@ -30,10 +30,10 @@ begin
         return to_char(cn);
     elsif (type = 'BINARY_FLOAT') then
         dbms_stats.convert_raw_value(rawval, cbf);
-        return to_char(cc);
+        return to_char(cbf);
     elsif (type = 'BINARY_DOUBLE') then
         dbms_stats.convert_raw_value(rawval, cbd);
-        return to_char(cc);
+        return to_char(cbd);
     elsif (type = 'NVARCHAR2') then
         dbms_stats.convert_raw_value(rawval, cnv);
         return to_char(cnv);

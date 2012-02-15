@@ -39,7 +39,7 @@ begin
         return to_char(cnv);
     elsif (type = 'ROWID') then
         dbms_stats.convert_raw_value(rawval, cr);
-        return to_char(cnv);
+        return to_char(cr);
     elsif (type = 'CHAR') then
         dbms_stats.convert_raw_value(rawval, cc);
         return to_char(cc);

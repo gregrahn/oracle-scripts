@@ -4,6 +4,7 @@
 --  DESCRIPTION
 --    View/query to show predicate information used by dbms_stats for histogram candidates.
 --    Requires sys as sysdba privs.
+--    Monitoring info can be flushed immediatley using dbms_stats.flush_database_monitoring_info;
 --
 --  Created by Greg Rahn on 2011-08-19.
 -- 
